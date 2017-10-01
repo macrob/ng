@@ -11,15 +11,22 @@ module.exports = function(grunt) {
     ts: util.inject('ts'),
     watch: util.inject('watch'),
     express: util.inject('express'),
+    sass: util.inject('sass'),
+    exec: util.inject('exec'),
+copy: util.inject('copy'),
   });
 
-
+  
   // Default task(s).
-  grunt.registerTask('default', ['clean:app', 'ts:app', 'express:dev','watch']);
+  grunt.registerTask('default', ['clean:app', 'ts:app', 'express:dev', 'exec:builSass','copy:app','watch']);
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+
 };
 

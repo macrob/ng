@@ -1,7 +1,7 @@
 .tscache/
-back/
-dist/
 node_modules/
 ts-node-*
 tscommand*
 .baseDir*
+.sass-cache*
+dist

@@ -11,8 +11,13 @@ export class Home extends Controller {
   }
 
   public index(req: express.Request, res: express.Response, next: express.NextFunction): Promise<any> | any {
-    this.debug.log('Hello world2');
-    return 'Home2234444';
+
+    return res.render("home", {
+      messages: {},
+      title: "Home"
+    });
   }
+
+
 
 }

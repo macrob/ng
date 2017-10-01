@@ -24,11 +24,12 @@ module.exports = function(cnf) {
         moduleResolution: 'Node',
         baseUrl: PH_SOURCE,
         lib: [
-          'es2016'
+          'es2016', 'dom'
         ],
         types: [
           'node',
           'express',
+          'jquery',
         ]
       },
       files: [{

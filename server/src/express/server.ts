@@ -26,6 +26,9 @@ class Web {
     this.app.use(logger('dev'));
     this.app.use(fileUpload());
 
+    app.set("views", resolve("../views"));
+    app.set("view engine", "pug");
+
     this.app.set('trust proxy', true);
 
     // this.app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +46,7 @@ class Web {
 
     this.app.use(useragent.express());
     // this.app.use('/adm/', express.static(this.config.root('public/')));
-    this.app.use(express.static(resolve('../public/')));
+    this.app.use(express.static(resolve('public')));
     // this.app.use('/amexio/', express.static(this.config.resolve('/var/www/stat/front/node_modules/amexio-ng-extensions/')));
     // this.app.use('/nmcss/', express.static(this.config.resolve('/var/www/stat/front/node_modules/')));
     // this.app.use('/assets/data/', express.static(this.config.resolve('/var/www/stat/front/src/assets/data/')));
