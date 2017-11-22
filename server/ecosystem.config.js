@@ -28,12 +28,14 @@ module.exports = {
    */
   deploy : {
     production : {
-      user : 'node',
-      host : '212.83.163.1',
+      user : 'root',
+      host: '176.58.117.221',
+      ssh_options: ["port=3784"],
+      key  : './macrob2key',
       ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/v/w/sms',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+      repo : 'https://github.com/macrob/ng.git',
+      path : '/var/www/sms',
+      'post-deploy' : 'cd server && npm install && pm2 reload ecosystem.config.js --env production'
     },
     dev : {
       user : 'node',
