@@ -5,6 +5,7 @@ import { Controller } from '../express/express';
 
 
 export class Contact extends Controller {
+  title = 'Contact';
 
   constructor() {
     super('index');

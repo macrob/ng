@@ -20,8 +20,8 @@ export class Controller {
   }
 
   public do(method: string, req: express.Request, res: express.Response, next: express.NextFunction) {
-    this.debug.log({ method });
     const response = (this)[method](req, res, next);
+ 
 
     switch (true) {
       case check.undefined(response):
