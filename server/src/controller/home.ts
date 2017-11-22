@@ -5,7 +5,7 @@ import { Controller } from '../express/express';
 
 
 export class Home extends Controller {
-
+  title = "Home";
   constructor() {
     super('index');
   }
@@ -13,8 +13,7 @@ export class Home extends Controller {
   public index(req: express.Request, res: express.Response, next: express.NextFunction): Promise<any> | any {
 
     return res.render("home", {
-      messages: {},
-      title: "Home"
+      title: this.title
     });
   }
 

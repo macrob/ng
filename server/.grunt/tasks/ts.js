@@ -12,7 +12,6 @@ module.exports = function(cnf) {
         verbose: true
       },
       exclude: [
-        'node_modules',
         '.*.ts',
         '_.*.ts',
         '_.*.spec.ts'
@@ -23,6 +22,7 @@ module.exports = function(cnf) {
       options: {
         moduleResolution: 'Node',
         baseUrl: PH_SOURCE,
+        rootDir: PH_SOURCE,
         lib: [
           'es2016', 'dom'
         ],

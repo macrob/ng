@@ -9,6 +9,10 @@ import * as config from './config';
 import { resolve } from './config';
 import { routing } from '../config/config';
 
+import * as session from "express-session";
+import expressValidator = require("express-validator");
+import * as flash from "express-flash";
+
 class Web {
 
   private router: express.Router;
@@ -23,11 +27,13 @@ class Web {
     const useragent = require('express-useragent');
     const fileUpload = require('express-fileupload');
 
+    this.app.use(session({ secret: 'test', cookie: { maxAge: 60000 }}));
     this.app.use(logger('dev'));
     this.app.use(fileUpload());
-
-    app.set("views", resolve("../views"));
-    app.set("view engine", "pug");
+    this.app.use(expressValidator());
+    this.app.use(flash());
+    this.app.set("views", resolve("../views"));
+    this.app.set("view engine", "pug");
 
     this.app.set('trust proxy', true);
 
@@ -46,7 +52,7 @@ class Web {
 
     this.app.use(useragent.express());
     // this.app.use('/adm/', express.static(this.config.root('public/')));
-    this.app.use(express.static(resolve('public')));
+    this.app.use(express.static(resolve('public/')));
     // this.app.use('/amexio/', express.static(this.config.resolve('/var/www/stat/front/node_modules/amexio-ng-extensions/')));
     // this.app.use('/nmcss/', express.static(this.config.resolve('/var/www/stat/front/node_modules/')));
     // this.app.use('/assets/data/', express.static(this.config.resolve('/var/www/stat/front/src/assets/data/')));
