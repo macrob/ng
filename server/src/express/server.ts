@@ -5,9 +5,10 @@ import * as http from 'http';
 import * as fs from 'fs';
 
 import { Routing } from './routing';
+
 import * as config from './config';
 import { resolve } from './config';
-import { routing } from '../config/config';
+import { routing, NavbarMenu } from '../config/config';
 
 import * as session from "express-session";
 import expressValidator = require("express-validator");
@@ -35,6 +36,8 @@ class Web {
     this.app.set("views", resolve("../views"));
     this.app.set("view engine", "pug");
 
+    // default menu for layout
+    this.app.locals = { navBar: NavbarMenu};
     this.app.set('trust proxy', true);
 
     // this.app.set('views', path.join(__dirname, 'views'));

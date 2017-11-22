@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .page-header
+    h3 SMS
+
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label(class='col-sm-2 control-label', for='text') Text
+      .col-sm-8
+        textarea.form-control(type='text', name='text', id='text', autofocus=true) #{form.text}
+    .form-group
+      label(class='col-sm-2 control-label', for='to') To
+      .col-sm-8
+        textarea.form-control(name='to', id='to', rows='7' )  #{form.to}
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-primary(type='submit')
+          i.fa.fa-envelope
+          | Send

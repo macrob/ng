@@ -13,7 +13,11 @@ export class Sms extends Controller {
 
   public index(req: express.Request, res: express.Response, next: express.NextFunction): Promise<any> | any {
 
-    return res.render("contact", {
+    return res.render("sms", {
+      form: {
+        text: '',
+        to: ''
+      },
       title: this.title
     });
   }
@@ -29,7 +33,13 @@ export class Sms extends Controller {
     // console.log(req.body);
     if (errors) {
       req.flash("errors", errors);
-      return res.redirect("/sms/");
+
+      // return res.redirect("/sms/");
+
+      return res.render("sms", {
+        form: req.body,
+        title: this.title
+      });
     }
     
     const mailOptions = {
