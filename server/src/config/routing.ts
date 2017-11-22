@@ -13,4 +13,5 @@ export const routing = [
 
   ['/sms/', Sms, 'get:index'],
   ['/sms/', Sms, 'post:submit'],
+  ['/clickatell/', Sms, 'post:callback' ]
 ];

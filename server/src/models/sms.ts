@@ -2,8 +2,11 @@ import * as Sequelize from 'sequelize';
 
 import { sequelize } from '../express/express';
 
-export const User = sequelize.define('user', {
-  firstName: {
+export const Sms = sequelize.define('sms', {
+  text: {
     type: Sequelize.STRING },
-  lastName: {
-    type: Sequelize.STRING }});
+  phones: {
+    type: Sequelize.STRING },
+  isParsed: {
+    type: Sequelize.INTEGER },
+});
