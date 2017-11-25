@@ -67,11 +67,12 @@ export class Sms extends Controller {
         });
       }
 
-      let toSend = await SmsItems.findAll({ where: { status: 'ERROR' } });
+      let toSend = await SmsItems.findAll({ where: { status: 'NEW' } });
       for (let sms of toSend) {
         let id = await clickatell.send(sms);
         sms.response = id;
         sms.clApiMsgId = id;
+        sms.status = 'SEND';
         sms.save();
       }
  

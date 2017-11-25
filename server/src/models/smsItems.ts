@@ -6,6 +6,9 @@ export const SmsItems = sequelize.define('sms_items', {
   text: {
     type: Sequelize.STRING
   },
+  status: {
+    type: Sequelize.STRING
+  },
   smsId: {
     type: Sequelize.INTEGER
   },
