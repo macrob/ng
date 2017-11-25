@@ -5,8 +5,8 @@ import * as App from './express/server';
 import { host, port} from './express/config';
 
 export class Server {
-  public port: number = port;
-  public host: string = host;
+  public port: number = port || 4400;
+  public host: string = host || '127.0.0.1';
   public socket: string;
 
   public srv: http.Server;

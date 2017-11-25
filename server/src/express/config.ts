@@ -31,8 +31,8 @@ export function mysql(connectionName: string = null) {
     }, ...conf
   };
 
-  return `mysql://${conf.user}:${conf.pass}@${conf.host}:3306/billan`
+  return `mysql://${conf.user}:${conf.pass}@${conf.host}:${conf.port}/${conf.db}`
 }
 
-export const host = config.host;
-export const port = config.port || 3000;
+export const host: string = config.host || '127.0.0.1';
+export const port: number = config.port || 3000;
