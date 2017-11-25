@@ -28,26 +28,26 @@ module.exports = {
    * http://pm2.keymetrics.io/docs/usage/deployment/
    */
   deploy : {
-    production : {
+    devtest : {
       user : 'root',
-      host: '176.58.117.221',
+      host: '212.71.248.195',
       ssh_options: ["port=3784"],
       key  : './macrob2key',
       ref  : 'origin/master',
       repo : 'https://github.com/macrob/ng.git',
       path : '/var/www/sms',
-      'post-deploy' : 'cd ./server/ && ./post-deploy && pm2 restart ecosystem.config.js WEB --env production'
+      'post-deploy' : 'cd ./server/ && ./post-deploy && pm2 restart ecosystem.config.js WEB --env devtest'
     },
-    dev : {
-      user : 'node',
-      host : '212.83.163.1',
+    glanding : {
+      user : 'root',
+      host: '176.58.111.51',
+      ssh_options: ["port=22"],
+      key  : './macrob2key',
       ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/var/www/development',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
-      env  : {
-        NODE_ENV: 'dev'
-      }
+      repo : 'https://github.com/macrob/ng.git',
+      path : '/var/www/sms',
+      'post-deploy' : 'cd ./server/ && ./post-deploy && pm2 restart ecosystem.config.js WEB --env glanding'
+    }
     }
   }
 };
