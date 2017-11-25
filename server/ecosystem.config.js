@@ -49,5 +49,4 @@ module.exports = {
       'post-deploy' : 'cd ./server/ && ./post-deploy && pm2 restart ecosystem.config.js WEB --env glanding'
     }
     }
-  }
 };
