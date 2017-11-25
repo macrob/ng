@@ -1,18 +1,19 @@
 import * as http from 'http';
 import * as fs from 'fs';
-
+import * as check from 'check-types';
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as methodOverride from 'method-override';
 import * as flash from "express-flash";
 import * as session from "express-session";
+import * as connectRedis from 'connect-redis';
 
 import { Routing } from './routing';
 
-import * as config from './config';
+// import * as config from './config';
 import { resolve } from './config';
-import { routing, NavbarMenu } from '../config/config';
+import { routing, NavbarMenu, redis as cnfRedis } from '../config/config';
 
 import expressValidator = require("express-validator");
 
@@ -31,12 +32,23 @@ class Web {
     const useragent = require('express-useragent');
     const fileUpload = require('express-fileupload');
 
-    this.app.use(session({ 
+    let sessionOpt: {
+      store?: any
+    } = {};
+
+    if (check.not.null(cnfRedis)) {
+  console.log('REDIST START', cnfRedis);
+      let redisStore = connectRedis(session);
+
+      sessionOpt.store = new redisStore(cnfRedis);
+    }
+
+    this.app.use(session({
       secret: 'test',
       cookie: { maxAge: 60000, secure: true },
       resave: false,
       saveUninitialized: true
-    }));
+    , ...sessionOpt}));
 
     this.app.use(logger('dev'));
     this.app.use(fileUpload());
