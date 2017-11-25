@@ -110,6 +110,8 @@ export class Sms extends Controller {
     SmsModel.create({ text: req.body.text, phones: req.body.to }).then(() => {
       req.flash("success", { msg: 'Sms Added' });
       return res.redirect("/sms/");
+    }).catch((e) => {
+      console.error(e);
     });
     // 
     // const mailOptions = {
