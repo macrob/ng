@@ -1,8 +1,12 @@
+import * as http from 'http';
+import * as fs from 'fs';
+
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import * as http from 'http';
-import * as fs from 'fs';
+import * as methodOverride from 'method-override';
+import * as flash from "express-flash";
+import * as session from "express-session";
 
 import { Routing } from './routing';
 
@@ -10,9 +14,8 @@ import * as config from './config';
 import { resolve } from './config';
 import { routing, NavbarMenu } from '../config/config';
 
-import * as session from "express-session";
 import expressValidator = require("express-validator");
-import * as flash from "express-flash";
+
 
 class Web {
 
@@ -54,6 +57,8 @@ class Web {
     this.app.use(cookieParser());
 
     this.app.use(useragent.express());
+    // this.app.use(methodOverride());
+
     // this.app.use('/adm/', express.static(this.config.root('public/')));
     this.app.use(express.static(resolve('public/')));
     // this.app.use('/amexio/', express.static(this.config.resolve('/var/www/stat/front/node_modules/amexio-ng-extensions/')));

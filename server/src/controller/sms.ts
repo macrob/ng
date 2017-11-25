@@ -90,7 +90,7 @@ export class Sms extends Controller {
   }
 
   public submit(req: express.Request, res: express.Response, next: express.NextFunction): Promise<any> | any {
-
+    let debug = this.debug;
     req.assert("text", "Text cannot be blank").notEmpty();
     req.assert("to", "To cannot be blank").notEmpty();
 
@@ -111,7 +111,7 @@ export class Sms extends Controller {
       req.flash("success", { msg: 'Sms Added' });
       return res.redirect("/sms/");
     }).catch((e) => {
-      console.error(e);
+      return this.internalError([req, res], e);
     });
     // 
     // const mailOptions = {

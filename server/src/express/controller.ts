@@ -63,9 +63,16 @@ export class Controller {
     res.send(result);
   }
 
-  public internalError([req, res]: [express.Request, express.Response], error: Error): void {
-    console.log({ error, req });
-    res.sendStatus(500);
+  public internalError([req, res]: [express.Request, express.Response], error: Error, errorMsg: string = 'Something failed!'): void {
+    res.status(500);
+    this.debug.err(error);
+
+    if (req.xhr) {
+       res.send({ error:  errorMsg});
+       return;
+     }
+
+    res.render('error', { error: errorMsg });
   }
 
   public location(location: Promise<string>, req: express.Request, res: express.Response): void {

@@ -15,7 +15,7 @@ export function getConnection(conf: {
     let opt = { host: '127.0.0.1', port: 3306 };
     conf = { ...conf, ...opt };
 
-    const connection = new Sequelize(`mysql://${conf.user}:${conf.pass}@${conf.host}:${conf.port}/${conf.db}`);
+    const connection: Sequelize = new Sequelize(`mysql://${conf.user}:${conf.pass}@${conf.host}:${conf.port}/${conf.db}`);
 
     connection
         .authenticate()
@@ -26,6 +26,7 @@ export function getConnection(conf: {
             d.err('Unable to connect to the database:', err);
         });
     connection.query('SET SESSION sql_mode=""');
+
     // export const sequelize = connection;
     return connection;
 
