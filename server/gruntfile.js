@@ -20,6 +20,8 @@ copy: util.inject('copy'),
   // Default task(s).
   grunt.registerTask('default', ['clean:app', 'ts:app', 'express:dev', 'exec:builSass','copy:app','watch']);
 
+  grunt.registerTask('build:production', ['clean:app', 'ts:app', 'exec:builSass','copy:app']);
+
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ts');
