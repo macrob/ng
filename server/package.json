@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "lockfileVersion": "1.0.0",
   "description": "test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macrob/ng.git"
+  },
   "src": "src/",
   "build": "dist/",
   "main": "dist/server.js",
