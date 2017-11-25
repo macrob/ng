@@ -2,9 +2,10 @@
 import * as _ from 'lodash';
 import * as express from 'express';
 
+import { connection as mysql } from '../models/connections';
+
 // import { User } from 'sequelize/user';
 import { Controller  } from '../express/express';
-import { connection as sequelize } from '../models/connections';
 
 export class Test extends Controller {
 
@@ -23,6 +24,7 @@ export class Test extends Controller {
   }
 
   public demoMysql(req: express.Request, res: express.Response, next: express.NextFunction): Promise<any> | any {
+
     const query =
     `select
       date(created_at) as dt,
@@ -35,7 +37,7 @@ export class Test extends Controller {
     order by created_at DESC
     limit 10`;
 
-    return sequelize.query(query).then((records) => {
+    return mysql.query(query).then((records) => {
       return {data: records[0]};
     });
   }
