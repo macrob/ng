@@ -1,6 +1,6 @@
 import * as Sequelize from 'sequelize';
 
-import { sequelize } from '../express/express';
+import { connection as sequelize} from './connections';
 
 export const SmsItems = sequelize.define('sms_items', {
   text: {
