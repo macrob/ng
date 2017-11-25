@@ -1,12 +1,13 @@
 import * as http from 'http';
 import * as fs from 'fs';
+import * as check from 'check-types';
 
 import * as App from './express/server';
 import { host, port} from './express/config';
 
 export class Server {
-  public port: number = port || 4400;
-  public host: string = host || '127.0.0.1';
+  public port: number = port;
+  public host: string = host;
   public socket: string;
 
   public srv: http.Server;
@@ -16,6 +17,10 @@ export class Server {
     // this.socket = <string> this.config.get('http.socket');
   }
   public getListening() {
+    if (check.undefined(this.host) && check.undefined(this.port) && check.undefined(this.socket) ) {
+      throw Error(` Server HOST:PORT or SOCKET not found`);
+    }
+
     return this.socket ? this.socket : this.host + ':' + this.port;
   }
 
