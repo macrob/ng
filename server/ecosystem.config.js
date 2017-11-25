@@ -14,6 +14,7 @@ module.exports = {
         NODE_ENV: 'dev'
       },
       env_production : {
+        DEBUG: '*',
         NODE_ENV: 'production'
       }
     },
