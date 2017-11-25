@@ -31,7 +31,13 @@ class Web {
     const useragent = require('express-useragent');
     const fileUpload = require('express-fileupload');
 
-    this.app.use(session({ secret: 'test', cookie: { maxAge: 60000 }}));
+    this.app.use(session({ 
+      secret: 'test',
+      cookie: { maxAge: 60000, secure: true },
+      resave: false,
+      saveUninitialized: true
+    }));
+
     this.app.use(logger('dev'));
     this.app.use(fileUpload());
     this.app.use(expressValidator());
