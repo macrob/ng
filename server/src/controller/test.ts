@@ -3,7 +3,8 @@ import * as _ from 'lodash';
 import * as express from 'express';
 
 // import { User } from 'sequelize/user';
-import { sequelize, Controller,  } from '../express/express';
+import { Controller  } from '../express/express';
+import { connection as sequelize } from '../models/connections';
 
 export class Test extends Controller {
 
