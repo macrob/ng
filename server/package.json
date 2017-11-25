@@ -20,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "connect-redis": "^3.3.2",
     "dotenv": "^4.0.0",
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
@@ -41,7 +42,6 @@
     "@types/jquery": "^3.2.12",
     "@types/node": "^8.0.31",
     "check-types": "^7.3.0",
-    "connect-redis": "^3.3.2",
     "cookie-parser": "^1.4.3",
     "debug": "^3.1.0",
     "emptygif": "^0.1.1",
