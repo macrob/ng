@@ -15,7 +15,9 @@ export function getConnection(conf: {
     let opt = { host: '127.0.0.1', port: 3306 };
     conf = { ...conf, ...opt };
 
-    const connection: Sequelize = new Sequelize(`mysql://${conf.user}:${conf.pass}@${conf.host}:${conf.port}/${conf.db}`);
+    const connection: Sequelize = new Sequelize(`mysql://${conf.user}:${conf.pass}@${conf.host}:${conf.port}/${conf.db}`, {
+        logging: debug('express:sequelize').log
+    });
 
     connection
         .authenticate()
