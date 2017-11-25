@@ -1,8 +1,8 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "1",
   "lockfileVersion": 1,
-  "description": "",
+  "description": "test",
   "src": "src/",
   "build": "dist/",
   "main": "dist/server.js",
@@ -12,7 +12,7 @@
     "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
     "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css"
   },
-  "author": "",
+  "author": "test",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
