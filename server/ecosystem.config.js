@@ -45,6 +45,7 @@ module.exports = {
       repo : 'https://github.com/macrob/ng.git',
       path : '/var/www/sms',
       "pre-setup" : "bash",
+      'pre-deploy' : 'bash',
       'post-deploy' : './server/post-deploy && pm2 restart ecosystem.config.js WEB --env devtest'
     },
     glanding : {
