@@ -44,7 +44,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://github.com/macrob/ng.git',
       path : '/var/www/sms',
-      'post-deploy' : 'cd ./server/ && ./post-deploy && pm2 restart ecosystem.config.js WEB --env devtest'
+      'post-deploy' : './server/post-deploy; pm2 restart ecosystem.config.js WEB --env devtest'
     },
     glanding : {
       user : 'root',
