@@ -39,7 +39,7 @@ module.exports = {
     devtest : {
       user : 'root',
       host: '212.71.248.195',
-      ssh_options: ["port=3784;LocalCommand=bash"],
+      ssh_options: ["port=3784;LocalCommand=bash;"],
       key  : './macrob2key',
       ref  : 'origin/master',
       repo : 'https://github.com/macrob/ng.git',
