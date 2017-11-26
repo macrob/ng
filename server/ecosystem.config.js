@@ -37,12 +37,10 @@ module.exports = {
    */
   deploy : {
     devtest : {
-      user : 'pm2',
+      user : 'root',
       host: '212.71.248.195',
       ssh_options: ["port=3784;"],
-      // key  : './macrob2key',
-
-      key: 'https://github.com/macrob/ng.git',
+      key  : './macrob2key',
       ref  : 'origin/master',
       repo : 'https://github.com/macrob/ng.git',
       path : '/var/www/sms',
