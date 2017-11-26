@@ -47,7 +47,7 @@ module.exports = {
       "pre-setup" : "bash",
       'pre-deploy' : 'env SHARED=/var/www/sms/shared bash',
       'post-deploy' : './server/post-deploy && pm2 restart ecosystem.config.js WEB --env devtest',
-      env:
+      
     },
     glanding : {
       user : 'root',
