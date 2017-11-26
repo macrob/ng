@@ -6,4 +6,4 @@ import { debug } from '../express/express';
 const d = debug('app:models');
 
 import { connection as sequelize} from './connections';
-sequelize.sync().then(d.log).catch(d.err);
+sequelize.sync().catch(d.err);
