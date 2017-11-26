@@ -4,7 +4,7 @@ import * as check from 'check-types';
 import * as dotenv from "dotenv";
 dotenv.config({ path: `config/${process.env.NODE_ENV}.env` });
 
-
+console.log(`ENV config/${process.env.NODE_ENV}.env`);
 export const mysql = {
     test: {
         db: process.env.MYSQL_TEST_DB,
