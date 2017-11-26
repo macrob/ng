@@ -2,5 +2,8 @@ export * from './sms';
 export * from './smsItems';
 export * from './user';
 
+import { debug } from '../express/express';
+const d = debug('app:models');
+
 import { connection as sequelize} from './connections';
-sequelize.sync().then(console.log).catch(console.error);
+sequelize.sync().then(d.log).catch(d.error);
