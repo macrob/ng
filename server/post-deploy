@@ -1,4 +1,4 @@
 #!/bin/bash
-
-npm install $(dirname $(realpath $0));
-npm run-script build $(dirname $(realpath $0));
+# cd $(dirname $(realpath $0));
+npm install;
+npm run-script build;
