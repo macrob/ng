@@ -41,7 +41,6 @@ module.exports = {
       host: '212.71.248.195',
       ssh_options: ["port=3784;"],
       key  : './macrob2key',
-      "pre-setup" : "apt-get install git",
       ref  : 'origin/master',
       repo : 'https://github.com/macrob/ng.git',
       path : '/var/www/sms',
