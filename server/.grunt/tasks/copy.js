@@ -20,7 +20,7 @@ module.exports = function (cnf) {
 		// bower: {flatten: false, cwd: cnf.bower.src, expand: true, src: assets, dest: cnf.bower.dest },
 
 
-    // frontend: {flatten: false, cwd: cnf.frontend.src, expand: true, src: assets, dest: cnf.frontend.dest }
+    frontend: {flatten: false, cwd: cnf.frontend.src, expand: true, src: assets, dest: cnf.frontend.dest }
 	};
 
 };

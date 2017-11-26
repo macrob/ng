@@ -5,6 +5,10 @@ const cnf = {
   app: {
     src: config.src,
     dest: config.dest
+  },
+  frontend: {
+    src: path.resolve(config.frontend, 'src'),
+    dest: path.resolve(config.dest, 'public')
   }
 };
 

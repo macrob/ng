@@ -13,14 +13,28 @@ module.exports = function(grunt) {
     express: util.inject('express'),
     sass: util.inject('sass'),
     exec: util.inject('exec'),
-copy: util.inject('copy'),
+    copy: util.inject('copy'),
   });
 
-  
-  // Default task(s).
-  grunt.registerTask('default', ['clean:app', 'ts:app', 'express:dev', 'exec:builSass','copy:app','watch']);
 
-  grunt.registerTask('build:production', ['clean:app', 'ts:app', 'exec:builSass','copy:app']);
+  grunt.registerTask('build:app', 
+  [
+      'clean:app', 'ts:app', 'express:dev', 'exec:builSass','copy:app'
+  ]);
+
+  grunt.registerTask('build:front', 
+  [
+      'clean:frontend',
+      'ts:frontend',
+      'copy:frontend'
+  ]);
+  
+  // Default task(s). start node express server with pug template
+  grunt.registerTask('default', ['build:app','watch']);
+
+  grunt.registerTask('serve', ['build:app', 'build:front','watch']);
+
+  grunt.registerTask('compile:app', ['build:app']);
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
