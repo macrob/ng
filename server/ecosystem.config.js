@@ -18,7 +18,7 @@ module.exports = {
         NODE_ENV: 'production'
       },
       env_devtest : {
-        DEBUG: '*',
+        DEBUG: 'app:*',
         NODE_ENV: 'devtest'
       },
       env_glanding : {
