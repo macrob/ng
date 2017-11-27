@@ -5,6 +5,8 @@ import * as path from 'path';
 import * as dotenv from "dotenv";
 dotenv.config({ path: `config/${process.env.NODE_ENV}.env` });
 
+let packageJson = require(`${process.env.PWD}/package.json`);
+
 console.log(`ENV config/${process.env.NODE_ENV}.env`);
 export const mysql = {
     test: {
@@ -36,7 +38,7 @@ expressStaticContentFolder.push('public');
 if(process.env.HOT_SERVE) {
 
 
-  let frontendPth = process.env.npm_package_frontend;
+  let frontendPth = packageJson.frontend;
   if (!frontendPth) {
     throw Error('process.env.npm_package_frontend not found');
   }

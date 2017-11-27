@@ -122,7 +122,7 @@ class Web {
 
         this.app.use(this.router);
         this.app.use((req, res, next) => {
-            res.status(404);
+            res.status(200);
             res.sendfile(resolve('public/index.html'));
         });
 
