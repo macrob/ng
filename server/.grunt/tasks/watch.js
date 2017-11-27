@@ -32,25 +32,39 @@ module.exports = function(cnf) {
         spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
       }
     },
-    frontendAssets: {
-      files: function() {
-        let files = [];
-        for (let f of assets) {
-          files.push(cnf.frontend.src + '/' + f);
-        };
-
-        console.log(files);
-        return files;
-      }(),
+    frontendIndex: {
+      files: [
+        cnf.frontend.src + '/index.html'
+      ],
       tasks: [
-        'copy:frontend'
+        'compile:frontendIndex'
       ]
     },
-    frontendTs: {
-      files: [cnf.frontend.src + '/**/*.ts'],
-      tasks: [
-        'copy:frontendTs'
+    frontendApp: {
+      files: [
+        cnf.frontend.src + '/app/**.*'
       ]
     }
+    
+    // frontendAssets: {
+    //   files: function() {
+    //     let files = [];
+    //     for (let f of assets) {
+    //       files.push(cnf.frontend.src + '/' + f);
+    //     };
+    // 
+    //     console.log(files);
+    //     return files;
+    //   }(),
+    //   tasks: [
+    //     'copy:frontend'
+    //   ]
+    // },
+    // frontendTs: {
+    //   files: [cnf.frontend.src + '/**/*.ts'],
+    //   tasks: [
+    //     'copy:frontendTs'
+    //   ]
+    // }
   };
 };

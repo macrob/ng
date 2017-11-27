@@ -82,6 +82,7 @@ class Web {
 
     // this.app.use('/adm/', express.static(this.config.root('public/')));
     this.app.use(express.static(resolve('public/')));
+    this.app.use(express.static('/var/www/ng/front/src'));
 
 //     
 //     let livereload = interceptor(function(req, res){

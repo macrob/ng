@@ -5,18 +5,18 @@ module.exports = function(cnf) {
 
     files[cnf.frontend.dest+'/index.html'] = [
 
-      cnf.frontend.dest+'/inline**js',
-      cnf.frontend.dest+'/polyfill**js',
-      cnf.frontend.dest+'/styles**js',
-      cnf.frontend.dest+'/vendor**js',
-      cnf.frontend.dest+'/main**js',
+      cnf.frontend.src+'/inline**js',
+      cnf.frontend.src+'/polyfill**js',
+      cnf.frontend.src+'/styles**js',
+      cnf.frontend.src+'/vendor**js',
+      cnf.frontend.src+'/main**js',
 
-      cnf.frontend.dest+'/css/*.css',
+      cnf.frontend.src+'/css/*.css',
     ];
   return {
     options: {
       template: cnf.frontend.dest+'/index.html',
-      ignorePath: cnf.frontend.dest,
+      ignorePath: cnf.frontend.src,
     },
 
     defaults: {
@@ -28,10 +28,10 @@ module.exports = function(cnf) {
         template: cnf.frontend.dest+'/index.html',
         starttag: '<!-- headjs -->',
         endtag: '<!-- endheadjs -->',
-        ignorePath: cnf.frontend.dest
+        ignorePath: cnf.frontend.src
       },
       dest: cnf.frontend.dest+'/index.html',
-      src: cnf.frontend.dest+'/js/systemjs.config.js'
+      src: cnf.frontend.src+'/js/systemjs.config.js'
 
     }
   }

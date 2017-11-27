@@ -30,15 +30,17 @@ module.exports = function(grunt) {
   //     'copy:frontend',
   //     'injector'
   // ]);
-  
+  grunt.registerTask('compile:frontendIndex', 
+  [
+      'copy:frontendIndex',
+      'injector'
+  ]);
   
   grunt.registerTask('serve:front', 
   [
       'clean:frontend',
       // 'ts:frontend',
-      'copy:frontend',
-      'copy:frontendTs',
-      'injector'
+      'compile:frontendIndex'
   ]);
   // Default task(s). start node express server with pug template
   grunt.registerTask('default', ['build:app','watch']);

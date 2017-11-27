@@ -9,7 +9,7 @@ module.exports = function(cnf) {
   // 	src: 'src/bower/bower_components/',
   // 	dest: cnf.build + 'bower_components/'
   // };
-  
+
   return {
 
     // template: {flatten: false, cwd: cnf.srcTpl, expand: true, src: ['**/*.html', '**/*.js', '**/*.css', '**/*.md', '**/*.xml', '**/*.ico', '**/*.txt', '**/*.png'], dest: cnf.build },
@@ -33,37 +33,46 @@ module.exports = function(cnf) {
       expand: true,
       src: assets,
       dest: cnf.frontend.dest,
+
+    },
+    frontendIndex: {
+
+      flatten: false,
+      cwd: cnf.frontend.src,
+      expand: true,
+      src: ['index.html'],
+      dest: cnf.frontend.dest,
       options: {
         process: function(content, srcpath) {
 
-          if (srcpath === cnf.frontend.src+'/index.html') {
-            // let host = 172.16.223.132:35729;
-let livereload = `<script>document.write('<script src="http://'
-    + (location.host || 'localhost').split(':')[0]
-    + ':35729/livereload.js"></'
-    + 'script>')</script> `;
 
-            content = content.replace('<body>','<body>'+livereload);
+          let livereload = `<script>document.write('<script src="http://'
+      + (location.host || 'localhost').split(':')[0]
+      + ':35729/livereload.js"></'
+      + 'script>')</script> `;
+      
+          content = content.replace('<body>', '<body>' + livereload);
 
-            const package = grunt.file.readJSON(cnf.frontend.src+'/upkg.json');
-            for(let src of package.scripts) {
+          const package = grunt.file.readJSON(cnf.frontend.src + '/upkg.json');
+          for (let src of package.scripts) {
 
-              content = content.replace('<!-- upkg -->','<script src="'+src+'"></script><!-- upkg -->');
+            content = content.replace('<!-- upkg -->', '<script src="' + src + '"></script><!-- upkg -->');
 
-            }
-
-            // let initMain = `<script>
-            //   System.import('main.ts').catch(function(err){ console.error(err); });
-            // </script>`;
-            // 
-            // content = content.replace('<!-- endheadjs -->',  '<!-- endheadjs -->' + initMain);
           }
-        
+
+          // let initMain = `<script>
+          //   System.import('main.ts').catch(function(err){ console.error(err); });
+          // </script>`;
+          // 
+          // content = content.replace('<!-- endheadjs -->',  '<!-- endheadjs -->' + initMain);
+
+
           return content;
         }
 
 
       }
+
     },
     frontendTs: {
       flatten: false,
