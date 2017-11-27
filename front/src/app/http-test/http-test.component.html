@@ -1,0 +1,11 @@
+<p>
+  http-test works!
+</p>
+
+
+<ul class="records">
+  <li *ngFor="let item of records$ | async">
+    
+    {{item | json }}
+  </li>
+</ul>
