@@ -2,3 +2,7 @@
 # cd $(dirname $(realpath $0));
 npm install;
 npm run-script build;
+cd ../frontend/;
+npm install;
+cd ../server/;
+npm run-script build-frontend;
