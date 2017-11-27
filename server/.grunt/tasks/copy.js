@@ -45,13 +45,15 @@ module.exports = function(cnf) {
       options: {
         process: function(content, srcpath) {
 
+          if(process.env.HOT_SERVE) {
+            let livereload = `<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+        + ':35729/livereload.js"></'
+        + 'script>')</script> `;
 
-          let livereload = `<script>document.write('<script src="http://'
-      + (location.host || 'localhost').split(':')[0]
-      + ':35729/livereload.js"></'
-      + 'script>')</script> `;
+            content = content.replace('<body>', '<body>' + livereload);
+        }
 
-          content = content.replace('<body>', '<body>' + livereload);
 
           const package = grunt.file.readJSON(cnf.frontend.src + '/upkg.json');
           for (let src of package.scripts) {
