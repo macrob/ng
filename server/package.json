@@ -12,6 +12,7 @@
   "frontend": "../front/",
   "main": "dist/server.js",
   "scripts": {
+    "serve": "grunt serve",
     "build": "grunt compile:app",
     "build-frontend": "cd $npm_package_frontend && ng build --aot --vendor-chunk --extract-css --delete-output-path -op $INIT_CWD/$npm_package_build/public/;",
     "test": "jasmine-ts \"src/**/*.spec.ts\"",

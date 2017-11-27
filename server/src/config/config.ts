@@ -28,7 +28,24 @@ type cRedisCnf = {
     socket?: string;
     url?: string;
 };
-export const staticFolder = path.resolve(__dirname, '..', '../../front/src/');
+
+
+const expressStaticContentFolder = [];
+expressStaticContentFolder.push('public');
+
+if(process.env.HOT_SERVE) {
+
+
+  let frontendPth = process.env.npm_package_frontend;
+  if (!frontendPth) {
+    throw Error('process.env.npm_package_frontend not found');
+  }
+
+  expressStaticContentFolder.push(path.resolve(process.env.PWD, frontendPth, 'src'));
+}
+
+export const expressStatic = expressStaticContentFolder;
+
 
 export const redis: cRedisCnf | null = function() {
     let redisconf: cRedisCnf =

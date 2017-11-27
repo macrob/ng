@@ -50,7 +50,7 @@ module.exports = function(cnf) {
       + (location.host || 'localhost').split(':')[0]
       + ':35729/livereload.js"></'
       + 'script>')</script> `;
-      
+
           content = content.replace('<body>', '<body>' + livereload);
 
           const package = grunt.file.readJSON(cnf.frontend.src + '/upkg.json');
@@ -60,11 +60,15 @@ module.exports = function(cnf) {
 
           }
 
-          // let initMain = `<script>
-          //   System.import('main.ts').catch(function(err){ console.error(err); });
-          // </script>`;
-          // 
-          // content = content.replace('<!-- endheadjs -->',  '<!-- endheadjs -->' + initMain);
+          let initMain = `<script>
+              try {
+                 System.import('main.ts').catch(function(err){ console.error(err); });
+              } catch(e) {
+              console.error(e);
+            }
+          </script>`;
+
+          content = content.replace('<!-- SYSTEMJSIMPORT -->', initMain);
 
 
           return content;
