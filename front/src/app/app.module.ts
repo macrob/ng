@@ -13,7 +13,7 @@ import { HttpTestComponent } from './http-test/http-test.component';
 import { MessageService } from './message.service';
 import { TestService } from './test.service';
 import { MessagesComponent } from './messages/messages.component';
-console.log(AppRoutingModule);
+
 @NgModule({
   declarations: [
     AppComponent,
