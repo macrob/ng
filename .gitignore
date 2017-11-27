@@ -5,3 +5,4 @@ tscommand*
 .baseDir*
 .sass-cache*
 dist
+._*
