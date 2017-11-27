@@ -3,7 +3,7 @@ const util = require('./.grunt/main');
 
 module.exports = function(grunt) {
   
-console.log(process);
+// console.log(process);
 
   // Project configuration.
   grunt.initConfig({
@@ -20,7 +20,7 @@ console.log(process);
 
   grunt.registerTask('build:app', 
   [
-      'clean:app', 'ts:app', 'express:dev', 'exec:builSass','copy:app'
+      'clean:app', 'ts:app', 'exec:builSass','copy:app'
   ]);
   // 
   // grunt.registerTask('build:front', 
@@ -43,9 +43,9 @@ console.log(process);
       'compile:frontendIndex'
   ]);
   // Default task(s). start node express server with pug template
-  grunt.registerTask('default', ['build:app','watch']);
+  grunt.registerTask('default', ['build:app', 'express:dev', 'watch']);
 
-  grunt.registerTask('serve', ['build:app', 'serve:front','watch']);
+  grunt.registerTask('serve', ['build:app', 'express:dev', 'serve:front','watch']);
 
   grunt.registerTask('compile:app', ['build:app']);
 
