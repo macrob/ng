@@ -9,6 +9,9 @@ import * as flash from "express-flash";
 import * as session from "express-session";
 import * as connectRedis from 'connect-redis';
 
+import * as cheerio from 'cheerio';
+import * as interceptor from 'express-interceptor';
+
 import { Routing } from './routing';
 
 // import * as config from './config';
@@ -79,6 +82,30 @@ class Web {
 
     // this.app.use('/adm/', express.static(this.config.root('public/')));
     this.app.use(express.static(resolve('public/')));
+
+//     
+//     let livereload = interceptor(function(req, res){
+// // console.log(res.get('Content-Type'));
+//       return {
+//         // Only HTML responses will be intercepted 
+//         isInterceptable: function(){
+//           return /text\/html/.test(res.get('Content-Type'));
+//         },
+//         // Appends a paragraph at the end of the response body 
+//         intercept: function(body, send) {
+//           var $document = cheerio.load(body);
+//     
+//           let host = '172.16.223.132:35729';
+//           $document('body').append(`<script src="http://${host}/livereload.js?snipver=1"> </script>`);
+//      
+//           send($document.html());
+//         }
+//       };
+//     })
+//      
+//     // Add the interceptor middleware 
+//     app.use(livereload);
+
     // this.app.use('/amexio/', express.static(this.config.resolve('/var/www/stat/front/node_modules/amexio-ng-extensions/')));
     // this.app.use('/nmcss/', express.static(this.config.resolve('/var/www/stat/front/node_modules/')));
     // this.app.use('/assets/data/', express.static(this.config.resolve('/var/www/stat/front/src/assets/data/')));
