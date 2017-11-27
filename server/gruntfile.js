@@ -3,7 +3,7 @@ const util = require('./.grunt/main');
 
 module.exports = function(grunt) {
   
-
+console.log(process);
 
   // Project configuration.
   grunt.initConfig({
