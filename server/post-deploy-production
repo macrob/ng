@@ -1,5 +1,7 @@
 #!/bin/bash
 # cd $(dirname $(realpath $0));
+ng set --global warnings.versionMismatch=false;
+
 npm install;
 npm run-script build;
 cd ../front/;
