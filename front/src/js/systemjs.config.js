@@ -57,8 +57,10 @@
       'tslib':                     'npm:tslib/tslib.js',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api@0.4/bundles/in-memory-web-api.umd.js',
       'ts':                        'npm:plugin-typescript@5.2.7/lib/plugin.js',
-      'typescript':                'npm:typescript@2.4.2/lib/typescript.js'
-
+      'typescript':                'npm:typescript@2.4.2/lib/typescript.js',
+      
+      '@angularclass/hmr': 'npm:@angularclass/hmr/dist/hmr.js',
+  
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

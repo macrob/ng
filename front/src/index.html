@@ -13,8 +13,13 @@
 
   <!-- SYSTEMJSIMPORT -->
   <script>
+    try {
        System.import('main.ts').catch(function(err){ console.error(err); });
-   </script>
+   
+    } catch(e) {
+    console.error(e);
+  }
+</script>
   <!-- END -->
 </head>
 <body>
