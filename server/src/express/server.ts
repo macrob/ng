@@ -16,7 +16,7 @@ import { Routing } from './routing';
 
 // import * as config from './config';
 import { resolve } from './config';
-import { routing, NavbarMenu, redis as cnfRedis } from '../config/config';
+import { routing, NavbarMenu, redis as cnfRedis, staticFolder } from '../config/config';
 
 import expressValidator = require("express-validator");
 
@@ -82,7 +82,7 @@ class Web {
 
     // this.app.use('/adm/', express.static(this.config.root('public/')));
     this.app.use(express.static(resolve('public/')));
-    this.app.use(express.static('/var/www/ng/front/src'));
+    this.app.use(express.static(staticFolder));
 
 //     
 //     let livereload = interceptor(function(req, res){
@@ -119,6 +119,11 @@ class Web {
     // this.app.use('/agenda', Job.getInstance().agendash());
 
     this.app.use(this.router);
+    this.app.use((req, res, next) => {
+        res.status(404);
+        res.sendfile(resolve('public/index.html'));
+    });
+
   }
 }
 

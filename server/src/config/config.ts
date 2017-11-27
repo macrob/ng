@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import * as check from 'check-types';
+import * as path from 'path';
 
 import * as dotenv from "dotenv";
 dotenv.config({ path: `config/${process.env.NODE_ENV}.env` });
@@ -27,6 +28,7 @@ type cRedisCnf = {
     socket?: string;
     url?: string;
 };
+export const staticFolder = path.resolve(__dirname, '..', '../../front/src/');
 
 export const redis: cRedisCnf | null = function() {
     let redisconf: cRedisCnf =
