@@ -6,15 +6,14 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-
 import { MessageService } from './message.service';
-
+import config from './config';
 export type Test = any;
 
 @Injectable()
 export class TestService {
 
-  private heroesUrl = 'test1';  // URL to web api
+    private heroesUrl = `${config.api}/test1`;  // URL to web api
 
   constructor(
     private http: HttpClient,

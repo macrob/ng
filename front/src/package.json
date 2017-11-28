@@ -1,0 +1,29 @@
+{
+  "jspm": {
+    "configFile": "js/config.js",
+    "dependencies": {
+      "@angular/cdk": "npm:@angular/cdk@^5.0.0-rc.2",
+      "@angular/common": "npm:@angular/common@^5.0.3",
+      "@angular/core": "npm:@angular/core@^5.0.3",
+      "@angular/platform-browser": "npm:@angular/platform-browser@^5.0.3",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^5.0.3",
+      "@angular/router": "npm:@angular/router@^5.0.3",
+      "@angularclass/hmr": "npm:@angularclass/hmr@^2.1.3",
+      "@covalent/core": "npm:@covalent/core@^1.0.0-rc.0",
+      "@covalent/dynamic-forms": "npm:@covalent/dynamic-forms@^1.0.0-rc.0",
+      "@covalent/highlight": "npm:@covalent/highlight@^1.0.0-rc.0",
+      "@covalent/http": "npm:@covalent/http@^1.0.0-rc.0",
+      "@covalent/markdown": "npm:@covalent/markdown@^1.0.0-rc.0",
+      "angular": "github:angular/bower-angular@^1.6.7",
+      "angular2": "npm:angular2@^2.0.0-beta.21",
+      "rxjs": "npm:rxjs@^5.5.2",
+      "ts": "github:frankwallis/plugin-typescript@^8.0.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4",
+      "typescript": "npm:typescript@^2.6.2"
+    }
+  }
+}

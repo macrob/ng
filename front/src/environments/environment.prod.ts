@@ -1,3 +1,6 @@
+import sharedEnvironment from './base';
+
 export const environment = {
-  production: true
+  production: true,
+...sharedEnvironment
 };

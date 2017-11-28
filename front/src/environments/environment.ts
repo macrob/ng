@@ -3,7 +3,12 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+import sharedEnvironment from './base';
+
+console.log(sharedEnvironment);
 export const environment = {
   production: false,
-  hmr: false
+  hmr: true,
+  api: '127.0.0.1',
+  ...sharedEnvironment
 };

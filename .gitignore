@@ -6,3 +6,6 @@ tscommand*
 .sass-cache*
 dist
 ._*
+jspm_packages
+employee-scheduling-ui/
+front/src/environments/base.ts
