@@ -42,8 +42,9 @@ if(process.env.HOT_SERVE) {
   if (!frontendPth) {
     throw Error('process.env.npm_package_frontend not found');
   }
-
+// console.log(path.resolve(process.env.PWD, frontendPth, 'node_modules'));
   expressStaticContentFolder.push(path.resolve(process.env.PWD, frontendPth, 'src'));
+  expressStaticContentFolder.push(['/npm/',path.resolve(process.env.PWD, frontendPth, 'node_modules')]);
 }
 
 export const expressStatic = expressStaticContentFolder;

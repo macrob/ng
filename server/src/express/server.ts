@@ -2,6 +2,7 @@ import * as http from 'http';
 import * as fs from 'fs';
 import * as check from 'check-types';
 
+
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as methodOverride from 'method-override';
@@ -83,7 +84,12 @@ class Web {
 
         // this.app.use('/adm/', express.static(this.config.root('public/')));
         for (let pth of expressStatic) {
+          if (check.string(pth)) {
             this.app.use(express.static(resolve(pth)));
+          } else {
+            this.app.use(pth[0], express.static(resolve(pth[1])));
+          }
+
         }
 
         //     
@@ -122,7 +128,7 @@ class Web {
 
         this.app.use(this.router);
         this.app.use((req, res, next) => {
-            res.status(200);
+            res.status(404);
             res.sendfile(resolve('public/index.html'));
         });
 
