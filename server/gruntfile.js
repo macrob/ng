@@ -6,6 +6,10 @@ module.exports = function(grunt) {
 // console.log(process);
 
   // Project configuration.
+
+  let cnf = {
+    frontend: 'systemjs' //
+  }
   grunt.initConfig({
     clean: util.inject('clean'),
     ts: util.inject('ts'),
@@ -22,7 +26,7 @@ module.exports = function(grunt) {
   [
       'clean:app', 'ts:app', 'exec:builSass','copy:app'
   ]);
-  // 
+
   // grunt.registerTask('build:front', 
   // [
   //     'clean:frontend',
@@ -30,24 +34,26 @@ module.exports = function(grunt) {
   //     'copy:frontend',
   //     'injector'
   // ]);
-  // grunt.registerTask('compile:frontendIndex', 
-  // [
-  //     'copy:frontendIndex',
-  //     'injector'
-  // ]);
-  
-  grunt.registerTask('serve:front', 
+
+  grunt.registerTask('build:frontendIndex', 
   [
       'clean:frontend',
-      // 'ts:frontend',
-      // 'compile:frontendIndex'
       'copy:frontendIndex',
       'injector'
   ]);
-  // Default task(s). start node express server with pug template
-  grunt.registerTask('default', ['build:app', 'express:dev', 'watch']);
 
-  grunt.registerTask('serve', ['build:app', 'express:dev', 'serve:front','watch']);
+  grunt.registerTask('serve:frontend', 
+  [
+    'exec:ngServe'
+  ]);
+
+  grunt.registerTask('serve:backend', ['build:app', 'express:dev', 'watch']);
+
+  grunt.registerTask('serve', ['build:app', 'express:dev', 'serve:frontend', 'watch']);
+  // Default task(s). start node express server with pug template
+  grunt.registerTask('default', ['serve:backend']);
+
+  // grunt.registerTask('serve', ['build:app', 'express:dev', 'ng:serve','watch']);
 
   grunt.registerTask('compile:app', ['build:app']);
 
