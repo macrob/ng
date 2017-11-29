@@ -1,4 +1,22 @@
 #!/bin/bash
 # cd $(dirname $(realpath $0));
 
+while getopts ":e:" opt; do
+  case $opt in
+    e)
+
+      export NODE_ENV=$OPTARG;
+      echo "-e  $OPTARG" >&2
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
 npm install && npm run-script build && npm run-script build-front;
