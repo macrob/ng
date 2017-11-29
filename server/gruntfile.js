@@ -27,6 +27,10 @@ module.exports = function(grunt) {
       'clean:app', 'ts:app', 'exec:builSass','copy:app'
   ]);
 
+  grunt.registerTask('show:info', [
+    'exec:ngInfo'
+  ]);
+
   // grunt.registerTask('build:front', 
   // [
   //     'clean:frontend',

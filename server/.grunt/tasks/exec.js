@@ -14,6 +14,12 @@ console.log(cnf);
     //   cmd: 'cd '+ph+'; ng build --output-path ' + config.frontend.dest
     // 
     // },
+    ngInfo: {
+      sync: true,
+      cmd: function(grunt) {
+        console.log(process.env);
+      }
+    },
     ngTest: {
       sync: true,
       cmd: `echo Test`

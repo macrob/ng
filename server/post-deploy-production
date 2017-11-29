@@ -19,4 +19,4 @@ while getopts ":e:" opt; do
   esac
 done
 
-npm install && npm run-script build && npm run-script build-front;
+npm install && npm run-script build && npm run-script build-front && grunt show:info;
