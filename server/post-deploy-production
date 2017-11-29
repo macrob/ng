@@ -5,6 +5,7 @@ ng set --global warnings.versionMismatch=false;
 npm install;
 npm run-script build;
 cd ../front/;
+ng set warnings.typescriptMismatch=false;
 npm install;
 cd ../server/;
 npm run-script build-frontend;

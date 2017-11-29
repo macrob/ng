@@ -1,6 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-
   "project": {
     "name": "front"
   },
@@ -56,10 +55,14 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {},
+    "component": {
+    },
     "serve": {
-         "port": 4444,
-         "host": "172.16.223.132"
-       }
+      "port": 4444,
+      "host": "172.16.223.132"
+    }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }
