@@ -14,6 +14,12 @@ console.log(cnf);
     //   cmd: 'cd '+ph+'; ng build --output-path ' + config.frontend.dest
     // 
     // },
+    ngInfo: {
+      sync: true,
+      cmd: function(grunt) {
+        console.log(process.env);
+      }
+    },
     ngTest: {
       sync: true,
       cmd: `echo Test`
@@ -25,7 +31,7 @@ console.log(cnf);
     ngBuild: {
       sync: true,
       cwd: config.resolveNg(),
-      cmd: `ng build --aot --vendor-chunk --extract-css --delete-output-path`
+      cmd: `ng build --aot --vendor-chunk --extract-css --delete-output-path -prod -e prod`
     },
     ngPreBuild: {
       sync: true,
