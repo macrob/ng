@@ -34,16 +34,18 @@ module.exports = function(grunt) {
   //     'copy:frontend',
   //     'injector'
   // ]);
-
-  grunt.registerTask('build:frontendIndex', 
-  [
-      'clean:frontend',
-      'copy:frontendIndex',
-      'injector'
-  ]);
+  //  
+  //
+  // grunt.registerTask('build:frontendIndex', 
+  // [
+  //     'clean:frontend',
+  //     'copy:frontendIndex',
+  //     'injector'
+  // ]);
 
   grunt.registerTask('serve:frontend', 
   [
+    'exec:ngPreBuild',
     'exec:ngServe'
   ]);
 
