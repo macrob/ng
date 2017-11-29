@@ -15,7 +15,7 @@
     "start": "grunt serve:backend",
     "serve": "grunt serve:backend",
     "build": "grunt compile:app",
-    "frontend-build": "grunt exec:ngPreBuild && cd $npm_package_frontend && ng build --aot --vendor-chunk --extract-css --delete-output-path -op $INIT_CWD/$npm_package_build/public/;",
+    "build-frontend": "grunt exec:ngPreBuild && cd $npm_package_frontend && ng build --aot --vendor-chunk --extract-css --delete-output-path -op $INIT_CWD/$npm_package_build/public/;",
     "test": "jasmine-ts \"src/**/*.spec.ts\"",
     "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
     "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css"
