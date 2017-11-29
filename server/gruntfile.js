@@ -58,6 +58,7 @@ module.exports = function(grunt) {
   // grunt.registerTask('serve', ['build:app', 'express:dev', 'ng:serve','watch']);
 
   grunt.registerTask('compile:app', ['build:app']);
+  grunt.registerTask('compile:ng', ['exec:ngPreBuild', 'exec:ngBuild', 'exec:ngMv'])
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');

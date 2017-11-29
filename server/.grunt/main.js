@@ -1,14 +1,15 @@
 
 const path = require('path');
 const config = require('./config');
+
 const cnf = {
   app: {
     src: config.src,
     dest: config.dest
   },
   frontend: {
-    src: path.resolve(config.frontend, 'src'),
-    dest: path.resolve(config.dest, 'public')
+    src: config.ng.src,
+    dest: config.ng.dest
   }
 };
 

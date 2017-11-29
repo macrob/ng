@@ -1,11 +1,4 @@
 #!/bin/bash
 # cd $(dirname $(realpath $0));
-ng set --global warnings.versionMismatch=false;
 
-npm install;
-npm run-script build;
-cd ../front/;
-ng set warnings.typescriptMismatch=false;
-npm install;
-cd ../server/;
-npm run-script build-frontend;
+npm install && npm run-script build && npm run-script build-front;
