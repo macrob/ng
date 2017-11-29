@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --disable-host-check  --hmr",
+    "prebuild": "node -r ./setenv.js ./node_modules/ng-node-environment/index.js",
+    "start": "npm run-script prebuild && ng serve --disable-host-check  --hmr",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

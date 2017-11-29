@@ -6,9 +6,8 @@
 import sharedEnvironment from './base';
 
 console.log(sharedEnvironment);
-export const environment = {
+export const environment: any = {
+  ...sharedEnvironment,
   production: false,
   hmr: true,
-  api: '127.0.0.1',
-  ...sharedEnvironment
 };
