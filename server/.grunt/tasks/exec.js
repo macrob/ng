@@ -25,7 +25,7 @@ console.log(cnf);
     ngBuild: {
       sync: true,
       cwd: config.resolveNg(),
-      cmd: `ng build --aot --vendor-chunk --extract-css --delete-output-path`
+      cmd: `ng build --aot --vendor-chunk --extract-css --delete-output-path --prod`
     },
     ngPreBuild: {
       sync: true,
