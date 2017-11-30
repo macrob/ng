@@ -9,3 +9,4 @@ dist
 jspm_packages
 employee-scheduling-ui/
 front/src/environments/base.ts
+front/nohup.out
