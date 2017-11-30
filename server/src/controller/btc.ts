@@ -1,9 +1,10 @@
 
 import * as _ from 'lodash';
 import * as express from 'express';
+import { execSync } from 'child_process';
 import { Controller } from '../express/express';
 
-import { exchange } from 'blockchain.info';
+import { exchange, MyWallet } from 'blockchain.info';
 
 export class Btc extends Controller {
   title = 'Btc';
@@ -16,6 +17,14 @@ export class Btc extends Controller {
     let debug = this.debug;
    
     return exchange.getTicker();
+  }
+
+  public getaddress(req: express.Request, res: express.Response, next: express.NextFunction): Promise<any> | any {
+    let debug = this.debug;
+    let amount = req.body.amount;
+
+     return execSync('electrum addrequest '+amount);
+   
   }
 }
 

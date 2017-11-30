@@ -15,5 +15,6 @@ export const routing = [
   ['/sms/', Sms, 'post:submit'],
   ['/clickatell/', Sms, 'post:callback' ],
 
-  ['/api/btc', Btc, 'get:index']
+  ['/api/btc', Btc, 'get:index'],
+  ['/api/btc/getaddress', Btc, 'post:getaddress']
 ];
