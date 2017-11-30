@@ -16,3 +16,12 @@ a[md-icon-button] {
 td-layout-manage-list .mat-toolbar {
     font-weight: 400;
 }
+
+.app-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-form > * {
+  width: 100%;
+}

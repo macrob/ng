@@ -14,35 +14,34 @@ import { TestService, Test } from '../test.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  defaultCommission = 0.5;
-  tickerBTC: any;
+  step = 1;
 
-  calculator = new FormGroup({
-    btc: new FormControl('', [Validators.required, ]),
-    amount: new FormControl('')
-  });
+  qr = '';
+  deposit: {
+    btc: number
+  };
 
-  constructor(private testService: TestService) { }
+  reginfo: {
+    phone: number;
+    email: string;
+    password: string;
+  };
 
-  ngOnInit() {
+    constructor(private testService: TestService) { }
 
-    this.testService.get('/api/btc').toPromise().then(res => {
-      this.tickerBTC = res;
-    });
-  }
+ngOnInit() {
 
+}
 
-  getTicker() {
-  return this.tickerBTC.USD.last;
-  }
+goToRegistration(data: any) {
+  this.deposit = data;
+  this.step++;
+}
 
-  getUSD() {
-     this.calculator.controls.amount.setValue(this.calculator.controls.btc.value * this.getTicker() * this.defaultCommission);
-  }
+getQr(data: any) {
+  this.step++;
+  console.log(this);
+  this.reginfo = data;
 
-  onSubmit() {
-    if (this.calculator.status === 'VALID') {
-      console.log('next.step');
-    }
-  }
+}
 }

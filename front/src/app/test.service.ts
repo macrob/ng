@@ -19,14 +19,25 @@ export class TestService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  post(path: string, opt?: {}): Observable<any> {
+    return this.http.post<Test[]>(this.apiUrl + path, opt).pipe(
+      map(result => {
+        console.log(result);
+        return (<any>result);
+      }),
+      tap(heroes => (this.log(`fetched http test service`))),
+      catchError(this.handleError('testService', []))
+    );
+  }
+
   get(path: string, opt?: {}): Observable<any> {
     return this.http.get<Test[]>(this.apiUrl + path).pipe(
-    map(result => {
-console.log(result);
-      return (<any>result);
-    }),
-    tap(heroes => (this.log(`fetched http test service`))),
-    catchError(this.handleError('testService', []))
+      map(result => {
+        console.log(result);
+        return (<any>result);
+      }),
+      tap(heroes => (this.log(`fetched http test service`))),
+      catchError(this.handleError('testService', []))
     );
   }
 

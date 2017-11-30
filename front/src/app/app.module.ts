@@ -22,7 +22,8 @@ import {
 } from '@covalent/core';
 
 
-import { ReactiveFormsModule }          from '@angular/forms';
+import { QRCodeModule } from 'angular2-qrcode';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -39,6 +40,9 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { LandingComponent } from './landing/landing.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { DepositComponent } from './btc/deposit/deposit.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LandingComponent,
     MainComponent,
     DashboardComponent,
+    CalculatorComponent,
+    RegistrationComponent,
+    DepositComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -100,7 +107,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CovalentDataTableModule,
     CovalentMessageModule,
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QRCodeModule
   ],
 
   bootstrap: [AppComponent],
