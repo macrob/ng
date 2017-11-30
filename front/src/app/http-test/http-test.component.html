@@ -1,4 +1,12 @@
-<mat-card class="example-card">
+
+  <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+    <div flex-gt-sm="60">
+
+      <div layout="row">
+        <div flex="33" layout="column">
+
+
+<mat-card>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>http-test works!</mat-card-title>
@@ -7,7 +15,7 @@
   <mat-card-content>
 
       
-      <ul class="records">
+      <ul class="records$">
         <li *ngFor="let item of records$ | async">
           
           {{item | json }}
@@ -20,3 +28,6 @@
     <button mat-button>SHARE</button>
   </mat-card-actions>
 </mat-card>
+
+
+</div></div></div></div>

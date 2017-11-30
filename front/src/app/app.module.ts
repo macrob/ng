@@ -22,6 +22,8 @@ import {
 } from '@covalent/core';
 
 
+import { ReactiveFormsModule }          from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -35,6 +37,8 @@ import { TestService } from './test.service';
 import { MessagesComponent } from './messages/messages.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { LandingComponent } from './landing/landing.component';
+import { MainComponent } from './main/main.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { LandingComponent } from './landing/landing.component';
     HttpTestComponent,
     ContactsComponent,
     LandingComponent,
+    MainComponent,
+    DashboardComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -92,7 +98,9 @@ import { LandingComponent } from './landing/landing.component';
     CovalentNotificationsModule,
     CovalentMenuModule,
     CovalentDataTableModule,
-    CovalentMessageModule
+    CovalentMessageModule,
+
+    ReactiveFormsModule
   ],
 
   bootstrap: [AppComponent],

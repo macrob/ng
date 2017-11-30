@@ -13,15 +13,26 @@ export type Test = any;
 @Injectable()
 export class TestService {
 
-    private heroesUrl = `${config.api}/test1`;  // URL to web api
+  private apiUrl = `${config.api}`;  // URL to web api
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  get(path: string, opt?: {}): Observable<any> {
+    return this.http.get<Test[]>(this.apiUrl + path).pipe(
+    map(result => {
+console.log(result);
+      return (<any>result);
+    }),
+    tap(heroes => (this.log(`fetched http test service`))),
+    catchError(this.handleError('testService', []))
+    );
+  }
+
   /** GET heroes from the server */
   getList(): Observable<Test[]> {
-    return this.http.get<Test[]>(this.heroesUrl)
+    return this.http.get<Test[]>(this.apiUrl)
       .pipe(
       map(result => {
 
