@@ -1,11 +1,33 @@
-<p>
-  http-test works!
-</p>
+
+  <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+    <div flex-gt-sm="60">
+
+      <div layout="row">
+        <div flex="33" layout="column">
 
 
-<ul class="records">
-  <li *ngFor="let item of records$ | async">
-    
-    {{item | json }}
-  </li>
-</ul>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>http-test works!</mat-card-title>
+    <mat-card-subtitle>Test</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+      
+      <ul class="records$">
+        <li *ngFor="let item of records$ | async">
+          
+          {{item | json }}
+        </li>
+      </ul>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+
+</div></div></div></div>

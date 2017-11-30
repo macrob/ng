@@ -1,5 +1,5 @@
 
-import { Home, Contact, Test, Test2, Sms } from '../controller/controller';
+import { Home, Contact, Test, Test2, Sms, Btc } from '../controller/controller';
 
 
 export const routing = [
@@ -13,5 +13,7 @@ export const routing = [
 
   ['/sms/', Sms, 'get:index'],
   ['/sms/', Sms, 'post:submit'],
-  ['/clickatell/', Sms, 'post:callback' ]
+  ['/clickatell/', Sms, 'post:callback' ],
+
+  ['/api/btc', Btc, 'get:index']
 ];
