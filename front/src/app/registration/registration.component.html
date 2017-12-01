@@ -4,7 +4,7 @@
   <mat-divider></mat-divider>
 
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="reg" class="app-form">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="app-form">
     <mat-form-field>
       <input matInput placeholder="Phone" formControlName="phone" required="">
     </mat-form-field>
@@ -21,7 +21,7 @@
 
 
     <mat-card-actions>
-      <button mat-button class="mat-primary" submit>Submit</button>
+      <button mat-button class="mat-primary" submit [disabled]="form.invalid">Next</button>
     </mat-card-actions>
   </form>
 </mat-card>

@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { TestService, Test } from '../../test.service';
 
-type BTCrequest = {
+export interface BTCrequest {
   URI: string;
   address: string;
   amount: number;

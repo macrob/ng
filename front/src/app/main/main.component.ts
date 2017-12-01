@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthService,  User } from '../auth.service';
+
 @Component({
-  selector: 'qs-main',
+  selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
@@ -26,8 +28,13 @@ export class MainComponent {
       icon: 'people',
     },
   ];
+user: User;
+  constructor(private _router: Router, private authService: AuthService) {
+    this.authService.user.subscribe((user: User) => {
+this.user = user;
+});
 
-  constructor(private _router: Router) {}
+}
 
   logout(): void {
     this._router.navigate(['/login']);

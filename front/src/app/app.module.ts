@@ -35,6 +35,7 @@ import { HttpTestComponent } from './http-test/http-test.component';
 
 import { MessageService } from './message.service';
 import { TestService } from './test.service';
+import { AuthService } from './auth.service';
 import { MessagesComponent } from './messages/messages.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { LandingComponent } from './landing/landing.component';
@@ -112,6 +113,6 @@ import { DepositComponent } from './btc/deposit/deposit.component';
   ],
 
   bootstrap: [AppComponent],
-  providers: [TestService, MessageService],
+  providers: [TestService, MessageService, AuthService],
 })
 export class AppModule { }

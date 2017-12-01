@@ -22,7 +22,7 @@ export class CalculatorComponent implements OnInit {
   tickerBTC: any;
 
 
-  calculator = new FormGroup({
+  form = new FormGroup({
     btc: new FormControl('', [Validators.required]),
     amount: new FormControl('')
   });
@@ -41,8 +41,8 @@ export class CalculatorComponent implements OnInit {
 
 
 // 
-//     this.calculator.valueChanges.subscribe(data => {
-// this.isError = this.calculator.invalid;
+//     this.form.valueChanges.subscribe(data => {
+// this.isError = this.form.invalid;
 // });
 
   }
@@ -56,15 +56,15 @@ export class CalculatorComponent implements OnInit {
   }
 
   getUSD() {
-    if (this.calculator.controls.btc.valid) {
-      this.calculator.controls.amount.setValue(this.calculator.controls.btc.value * this.tickerBTC.USD.last * this.defaultCommission);
+    if (this.form.controls.btc.valid) {
+      this.form.controls.amount.setValue(this.form.controls.btc.value * this.tickerBTC.USD.last * this.defaultCommission);
     }
   }
 
   onSubmit() {
-    if (this.calculator.status === 'VALID') {
-  console.log(this.calculator.value);
-      this.onSuccess.emit(this.calculator.value);
+    if (this.form.status === 'VALID') {
+
+      this.onSuccess.emit(this.form.value);
     }
   }
 }
