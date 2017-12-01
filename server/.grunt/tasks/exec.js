@@ -2,12 +2,13 @@ const grunt = require('grunt');
 var debug = require('debug')('grunt:cnf');
 const fs = require('fs');
 const path = require('path');
+const exec = require('child_process').exec;
 
 const config = require('../config');
 module.exports = function(cnf) {
 
 
-console.log(cnf);
+  console.log(cnf);
   return {
     // buildFront: {
     //   sync: true,
@@ -31,7 +32,7 @@ console.log(cnf);
     ngBuild: {
       sync: true,
       cwd: config.resolveNg(),
-      cmd: `ng build --aot --vendor-chunk --extract-css --delete-output-path -prod -e prod`
+      cmd: `ng build  --sourcemaps --aot --vendor-chunk --extract-css --delete-output-path  --build-optimizer -prod -e prod`
     },
     ngPreBuild: {
       sync: true,
@@ -40,8 +41,18 @@ console.log(cnf);
     },
     ngServe: {
       sync: false,
-      cwd: config.resolveNg(),
-      cmd: `ng serve --disable-host-check  --hmr`
+      // cwd: config.resolveNg(),
+      cmd: function(grunt) {
+
+        let res = exec('ng serve --disable-host-check  --hmr', {
+          cwd: config.resolveNg()
+        },  (error, stdout, stderr) =>{
+          console.log('ee',error, stdout, stderr)
+        });
+
+
+return 'echo resr';
+      }
     },
     builSass: {
       sync: false,

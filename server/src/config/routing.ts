@@ -1,5 +1,5 @@
 
-import { Home, Contact, Test, Test2, Sms, Btc } from '../controller/controller';
+import { Home, Contact, Test, Test2, Sms, Btc, Usr } from '../controller/controller';
 
 
 export const routing = [
@@ -16,5 +16,8 @@ export const routing = [
   ['/clickatell/', Sms, 'post:callback' ],
 
   ['/api/btc', Btc, 'get:index'],
-  ['/api/btc/getaddress', Btc, 'post:getaddress']
+  ['/api/btc/getaddress', Btc, 'post:getaddress'],
+
+  ['/usr', Usr, 'post:add']
+  
 ];
