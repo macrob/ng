@@ -3,11 +3,11 @@
 
     <div layout="row">
       <div flex="33" layout="column">
-        
-        <app-calculator *ngIf="step==1" (onSuccess)="goToRegistration($event)"></app-calculator>
-        <app-registration *ngIf="step==2" (onSuccess)="getQr($event)"></app-registration>
 
-        <app-deposit *ngIf="step==3" [btc]="deposit.btc"></app-deposit>
+        <app-calculator *ngIf="step==1" (onSuccess)="goToRegistration()"></app-calculator>
+        <app-registration *ngIf="step==2" (onSuccess)="getQr()"></app-registration>
+
+        <app-deposit *ngIf="step==3" [btc]="deposit.btc" (onTimeout)="depoistTimeout()"></app-deposit>
       </div>
 
 

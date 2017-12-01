@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { TestService, Test } from '../../test.service';
 
 type BTCrequest = {
   URI: string;
-address: string;
-amount: number;
+  address: string;
+  amount: number;
 };
 
 @Component({
@@ -15,23 +15,26 @@ amount: number;
 })
 export class DepositComponent implements OnInit {
   @Input() btc: any;
+  @Output() onTimeout: EventEmitter<any> = new EventEmitter();
+
   request: BTCrequest;
-  wait: number = 30;
-  counter: number = 30;
+  wait = 30;
+  counter = 30;
   constructor(private testService: TestService) { }
 
   runTimer() {
-    let interval = setInterval(() => { this.counter--; 
-    
-    if(this.counter === 0) {
-      this.timeout();
-    }
+    const interval = setInterval(() => {
+    this.counter--;
+
+      if (this.counter === 0) {
+        this.timeout();
+      }
     }, 1000);
   }
 
-timeout() {
-alert('timeout');
-}
+  timeout() {
+    this.onTimeout.emit(this.request);
+  }
 
   ngOnInit() {
 
@@ -40,7 +43,7 @@ alert('timeout');
     }).toPromise().then((res: BTCrequest) => {
       this.request = res;
       this.runTimer();
-      
+
     });
   }
 

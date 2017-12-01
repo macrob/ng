@@ -27,21 +27,25 @@ export class DashboardComponent implements OnInit {
     password: string;
   };
 
-    constructor(private testService: TestService) { }
+  constructor(private testService: TestService) { }
 
-ngOnInit() {
+  ngOnInit() {
 
-}
+  }
 
-goToRegistration(data: any) {
-  this.deposit = data;
-  this.step++;
-}
+  goToRegistration(data: any) {
+    this.deposit = data;
+    this.step++;
+  }
 
-getQr(data: any) {
-  this.step++;
-  console.log(this);
-  this.reginfo = data;
+  getQr(data: any) {
+    this.step++;
+    console.log(this);
+    this.reginfo = data;
 
+  }
+
+  depoistTimeout(data:any){
+    this.step--;
 }
 }

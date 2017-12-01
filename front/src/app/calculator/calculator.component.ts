@@ -31,11 +31,15 @@ export class CalculatorComponent implements OnInit {
 
   constructor(private testService: TestService) { }
 
+  
   ngOnInit() {
 
-    this.testService.get('/api/btc').toPromise().then(res => {
-      this.tickerBTC = res;
-    });
+    // this.testService.get('/api/btc').toPromise().then(res => {
+    //   this.tickerBTC = res;
+    // });
+  this.getTicker();
+
+
 // 
 //     this.calculator.valueChanges.subscribe(data => {
 // this.isError = this.calculator.invalid;
@@ -45,11 +49,16 @@ export class CalculatorComponent implements OnInit {
 
 
   getTicker() {
-    return this.tickerBTC.USD.last;
+    this.testService.get('/api/btc').toPromise().then(res => {
+      this.tickerBTC = res;
+      // this.getTicker();
+    });
   }
 
   getUSD() {
-    this.calculator.controls.amount.setValue(this.calculator.controls.btc.value * this.getTicker() * this.defaultCommission);
+    if (this.calculator.controls.btc.valid) {
+      this.calculator.controls.amount.setValue(this.calculator.controls.btc.value * this.tickerBTC.USD.last * this.defaultCommission);
+    }
   }
 
   onSubmit() {

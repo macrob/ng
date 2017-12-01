@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { TestService, Test } from '../test.service';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -16,13 +18,18 @@ export class RegistrationComponent implements OnInit {
   });
 
 
-  constructor() { }
+  constructor(private testService: TestService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     if (this.reg.status === 'VALID') {
+      this.testService.post('/usr', this.reg.value).toPromise().then((res: any) => {
+        console.log(res);
+
+      });
+
       this.onSuccess.emit(this.reg.value);
     }
   }
